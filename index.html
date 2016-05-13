@@ -5,25 +5,32 @@
    <meta charset="UTF-8"/>
    <style src="/reset.css"></style>
    <style>
-     asdf {}
      #filler {
        position: absolute;
        height: 300%;
        width: 300%;
      }
+     #base {
+       position: fixed;
+       top: 0px;
+       bottom: 0px;
+       left: 0px;
+       right: 0px;
+       perspective: 1000px;
+     }
      #board {
        border: 1px solid #000;
-       position: fixed;
-       top: 10px;
-       bottom: 10px;
-       left: 10px;
-       right: 10px;
+       transform: translateZ(-100px) rotateY(10deg) rotateX(10deg);
+       height: 100%;
+       width: 100%;
      }
    </style>
  </head>
  <body>
   <div id="filler"></div>
-  <div id="board">TODO</div>
+  <div id="base">
+    <div id="board">TODO</div>
+  </div>
   <script
 	  src="https://code.jquery.com/jquery-2.2.3.min.js"
 	  integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
