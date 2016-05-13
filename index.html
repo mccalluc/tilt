@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>tilt</title>
+   <meta charset="UTF-8"/>
+   <style src="/reset.css"></style>
+   <style>
+     asdf {}
+     #filler {
+       position: absolute;
+       height: 300%;
+       width: 300%;
+     }
+     #board {
+       border: 1px solid #000;
+       position: fixed;
+       top: 10px;
+       bottom: 10px;
+       left: 10px;
+       right: 10px;
+     }
+   </style>
+ </head>
+ <body>
+  <div id="filler"></div>
+  <div id="board">TODO</div>
+  <script
+	  src="https://code.jquery.com/jquery-2.2.3.min.js"
+	  integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+	  crossorigin="anonymous"></script>
+  <script>
+   $(function(){
+     var $d = $(document);
+     $d.scrollTop($d.height() / 3);
+     $d.scrollLeft($d.width() / 3);
+   });
+  </script>
+ </body>
+</html>
