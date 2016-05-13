@@ -7,8 +7,6 @@
    <style>
      #filler {
        position: absolute;
-       height: 300%;
-       width: 300%;
      }
      #base {
        position: fixed;
@@ -36,15 +34,19 @@
 	  crossorigin="anonymous"></script>
   <script>
    $(function(){
+     var mult = 2;
+     var $filler = $('#filler');
+     $filler.width(mult*100+'%');
+     $filler.height(mult*100+'%');
+
      var $doc = $(document);
-     $doc.scrollTop($doc.height() / 3);
-     $doc.scrollLeft($doc.width() / 3);
+     var $window = $(window);
+     $doc.scrollTop($window.height() * (mult-1) / 2);
+     $doc.scrollLeft($window.width() * (mult-1) / 2);
 
      $(window).scroll(function(){
-       var $filler = $('#filler');
-       var $window = $(window);
-       var x = $(window).scrollLeft() / ($filler.width() * 2 / 3) - 0.5;
-       var y = $(window).scrollTop() / ($filler.height() * 2 / 3) - 0.5;
+       var x = $window.scrollLeft() / ($window.width() * (mult-1)) - 0.5;
+       var y = $window.scrollTop() / ($window.height() * (mult-1)) - 0.5;
        $('#board').css({
          transform: 'translateZ(-100px) rotateX('+y*180+'deg) rotateY('+x*180+'deg)'
        });
