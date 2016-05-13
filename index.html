@@ -20,7 +20,6 @@
      }
      #board {
        border: 1px solid #000;
-       transform: translateZ(-100px) rotateY(10deg) rotateX(10deg);
        height: 100%;
        width: 100%;
      }
@@ -37,9 +36,19 @@
 	  crossorigin="anonymous"></script>
   <script>
    $(function(){
-     var $d = $(document);
-     $d.scrollTop($d.height() / 3);
-     $d.scrollLeft($d.width() / 3);
+     var $doc = $(document);
+     $doc.scrollTop($doc.height() / 3);
+     $doc.scrollLeft($doc.width() / 3);
+
+     $(window).scroll(function(){
+       var $filler = $('#filler');
+       var $window = $(window);
+       var x = $(window).scrollLeft() / ($filler.width() * 2 / 3) - 0.5;
+       var y = $(window).scrollTop() / ($filler.height() * 2 / 3) - 0.5;
+       $('#board').css({
+         transform: 'translateZ(-100px) rotateX('+y*180+'deg) rotateY('+x*180+'deg)'
+       });
+     });
    });
   </script>
  </body>
