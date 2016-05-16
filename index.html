@@ -3,7 +3,6 @@
  <head>
    <title>tilt</title>
    <meta charset="UTF-8"/>
-   <style src="/reset.css"></style>
    <style>
      #filler {
        position: absolute;
@@ -22,13 +21,25 @@
        background: #FFF;
        height: 100%;
        width: 100%;
+       transform-style: preserve-3d;
+     }
+     .ball {
+       position: absolute;
+       border-radius: 50px;
+       background: #F00;
+       width: 100px;
+       height: 100px;
      }
    </style>
  </head>
  <body>
   <div id="filler"></div>
   <div id="base">
-    <div id="board">TODO</div>
+    <div id="board">
+      <div class="ball" style="left: 100px; top: 200px;"></div>
+      <div class="ball" style="left: 350px; top: 400px;"></div>
+      <div class="ball" style="left: 500px; top: 100px;"></div>
+    </div>
   </div>
   <script
 	  src="https://code.jquery.com/jquery-2.2.3.min.js"

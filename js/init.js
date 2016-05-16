@@ -15,8 +15,12 @@ $(function(){
    var x = $window.scrollLeft() / ($window.width() * (mult-1)) - 0.5;
    var y = $window.scrollTop() / ($window.height() * (mult-1)) - 0.5;
    $('#board').css({
-     transform: 'translateZ(-100px) rotateX('+y*range_of_tilt+'deg) rotateY('+x*range_of_tilt+'deg)',
+     transform: 'translateZ(-200px) rotateX('+y*range_of_tilt+'deg) rotateY('+x*range_of_tilt+'deg)',
      background: 'hsl(' +(100*(x+0.5)+250)+ ', 33%, ' +(50*(y+0.5)+50)+ '%)'
+   });
+   $('.ball').css({
+     transform: 'translateZ(50px) rotateX('+(360-y*range_of_tilt)+'deg) rotateY('+(360-x*range_of_tilt)+'deg)'
+     // z: ball radius; x and y reverse rotation so flat to viewer.
    });
  });
 });
