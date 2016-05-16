@@ -10,6 +10,7 @@
      }
      #base {
        position: fixed;
+       background: #000;
        top: 0px;
        bottom: 0px;
        left: 0px;
@@ -18,6 +19,7 @@
      }
      #board {
        border: 1px solid #000;
+       background: #FFF;
        height: 100%;
        width: 100%;
      }
@@ -32,26 +34,6 @@
 	  src="https://code.jquery.com/jquery-2.2.3.min.js"
 	  integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
 	  crossorigin="anonymous"></script>
-  <script>
-   $(function(){
-     var mult = 2;
-     var $filler = $('#filler');
-     $filler.width(mult*100+'%');
-     $filler.height(mult*100+'%');
-
-     var $doc = $(document);
-     var $window = $(window);
-     $doc.scrollTop($window.height() * (mult-1) / 2);
-     $doc.scrollLeft($window.width() * (mult-1) / 2);
-
-     $(window).scroll(function(){
-       var x = $window.scrollLeft() / ($window.width() * (mult-1)) - 0.5;
-       var y = $window.scrollTop() / ($window.height() * (mult-1)) - 0.5;
-       $('#board').css({
-         transform: 'translateZ(-100px) rotateX('+y*180+'deg) rotateY('+x*180+'deg)'
-       });
-     });
-   });
-  </script>
+  <script src="js/init.js"></script>
  </body>
 </html>
