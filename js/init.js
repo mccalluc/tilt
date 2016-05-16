@@ -16,7 +16,7 @@ $(function(){
    var y = $window.scrollTop() / ($window.height() * (mult-1)) - 0.5;
    $('#board').css({
      transform: 'translateZ(-200px) rotateX('+y*range_of_tilt+'deg) rotateY('+x*range_of_tilt+'deg)',
-     background: 'hsl(' +(100*(x+0.5)+250)+ ', 33%, ' +(50*(y+0.5)+50)+ '%)'
+     background: 'hsl(' +(100*(x+0.5)+250)+ ', 33%, ' +(50*(y+0.5)+35)+ '%)'
    });
    $('.ball').css({
      transform: 'translateZ(50px) rotateX('+(360-y*range_of_tilt)+'deg) rotateY('+(360-x*range_of_tilt)+'deg)'
