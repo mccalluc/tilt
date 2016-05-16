@@ -25,7 +25,8 @@ $(function(){
    $('.ball').css({
      transform: 'translateZ(50px) rotateX('+(360-y*range_of_tilt)+'deg) rotateY('+(360-x*range_of_tilt)+'deg)',
      // z: ball radius; x and y reverse rotation so flat to viewer.
-     background: 'radial-gradient(at 20% top,'+color(x,y,10,50)+','+color(x,y,10,20)+')'
+     background: 'radial-gradient(at 20% top,'+color(x,y,10,50)+','+color(x,y,10,20)+')',
+     'box-shadow': ''+(-x*30)+'px '+(y*30)+'px 20px -5px rgba(0, 0, 0, 0.3)'
    });
  });
 });
