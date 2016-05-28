@@ -37,9 +37,11 @@
 
         var balls = $('.ball').map(function (i, ball) {
             var $ball = $(ball);
+            var diameter = 100;
+            $ball.width(diameter);
+            $ball.height(diameter);
             var position = $ball.position();
-            // TODO: ".css('border-radius')" should work?
-            return Bodies.circle(position.top, position.left, 50);
+            return Bodies.circle(position.top, position.left, diameter/2);
         }).toArray();
         World.add(engine.world, balls);
 
