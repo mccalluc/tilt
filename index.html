@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <title>tilt</title>
-   <meta charset="UTF-8"/>
-   <style>
-     #filler {
-       position: absolute;
-     }
-     #base {
-       position: fixed;
-       background: #000;
-       top: 0px;
-       bottom: 0px;
-       left: 0px;
-       right: 0px;
-       perspective: 1000px;
-     }
-     #board {
-       height: 100%;
-       width: 100%;
-       transform-style: preserve-3d;
-     }
-     .ball {
-       position: absolute;
-       border-radius: 50px;
-       width: 100px;
-       height: 100px;
-     }
-   </style>
- </head>
- <body>
-  <div id="filler"></div>
-  <div id="base">
-    <div id="board">
-      <div class="ball" style="left: 100px; top: 200px;"></div>
-    </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.10.0/matter.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/play.js"></script>
- </body>
+    <head>
+        <title>tilt</title>
+        <meta charset="UTF-8"/>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            #filler {
+                position: absolute;
+            }
+            #base {
+                position: fixed;
+                background: #000;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                perspective: 1000px;
+            }
+            #board {
+                height: 100%;
+                width: 100%;
+                transform-style: preserve-3d;
+                position: relative;
+            }
+            #intro {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+            .ball {
+                position: absolute;
+                border-radius: 50px;
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="filler"></div>
+        <div id="base">
+            <div id="board">
+                <div class="ball" style="left: 100px; top: 200px;"></div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.10.0/matter.min.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/play.js"></script>
+    </body>
 </html>
