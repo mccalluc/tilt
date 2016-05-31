@@ -26,25 +26,25 @@
                 .appendTo('#board').fadeOut(20000);
     }
 
+    function add_ball(x, y, r) {
+        $('<div class="ball">')
+                .css({
+                    top: y,
+                    left: x,
+                    width: r * 2,
+                    height: r * 2
+                })
+                .appendTo('#board');
+        World.add(engine.world, Bodies.circle(x, y, r));
+    }
+
     function start_engine() {
         var engine = Engine.create();
         engine.world.gravity.y = 0;
-
         Render.create({
             element: document.body,
             engine: engine
         });
-
-        var balls = $('.ball').map(function (i, ball) {
-            var $ball = $(ball);
-            var diameter = 100;
-            $ball.width(diameter);
-            $ball.height(diameter);
-            var position = $ball.position();
-            return Bodies.circle(position.top, position.left, diameter/2);
-        }).toArray();
-        World.add(engine.world, balls);
-
         Engine.run(engine);
         return engine;
     }
@@ -83,6 +83,7 @@
 
     init();
     var engine = start_engine();
+    add_ball(200, 200, 50);
     render();
     $window.scroll(on_scroll);
 
