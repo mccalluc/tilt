@@ -22,20 +22,40 @@
         $doc.scrollTop($window.height() * (mult - 1) / 2)
                 .scrollLeft($window.width() * (mult - 1) / 2);
 
-        $('<p id="intro">Scroll to tilt.<br>Best on modern browsers.<br>Sorry.</p>')
+        $('<p id="intro">Scroll to tilt. Click to remove.<br>Best on modern browsers.<br>Sorry.</p>')
                 .appendTo('#board').fadeOut(20000);
     }
 
     function add_ball(x, y, r) {
-        $('<div class="ball">')
+        var body = Bodies.circle(x, y, r);
+        World.add(engine.world, body);
+        var $ball = $('<div class="ball">')
                 .css({
                     top: y,
                     left: x,
                     width: r * 2,
-                    height: r * 2
+                    height: r * 2,
+                    'margin-left': -r,
+                    'margin-top': -r
                 })
                 .appendTo('#board');
-        World.add(engine.world, Bodies.circle(x, y, r));
+        $ball.click(function () {
+            remove_ball($ball, body);
+        });
+    }
+
+    function remove_ball($ball, body) {
+        $ball.animate({
+            opacity: 0,
+            width: 1000,
+            height: 1000,
+            'margin-left': -500,
+            'margin-top': -500},
+                500,
+                function () {
+                    Composite.remove(engine.world, body);
+                    $ball.remove();
+                });
     }
 
     function start_engine() {
@@ -83,7 +103,7 @@
 
     init();
     var engine = start_engine();
-    add_ball(200, 200, 50);
+    add_ball(100, 100, 50);
     render();
     $window.scroll(on_scroll);
 
