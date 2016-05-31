@@ -108,7 +108,7 @@
     $window.scroll(on_scroll);
     $('#board').click(function(event) {
         if (event.target === this) { // board itself is the target, and not one of the balls 
-            add_ball(event.offsetX, event.offsetY, 50);
+            add_ball(event.offsetX * 1.2, event.offsetY * 1.2, 50); // TODO: Hack. Offsets not 3D?
             on_scroll(); // to set styles that depend on orientation
         }
     });
