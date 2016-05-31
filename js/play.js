@@ -22,12 +22,12 @@
         $doc.scrollTop($window.height() * (mult - 1) / 2)
                 .scrollLeft($window.width() * (mult - 1) / 2);
 
-        $('<p id="intro">Scroll to tilt. Click to remove.<br>Best on modern browsers.<br>Sorry.</p>')
+        $('<p id="intro">Scroll to tilt. Click to add and remove.<br>Best on modern browsers. Sorry.<br><a href="https://github.com/mccalluc/tilt">Fork on Github.</a></p>')
                 .appendTo('#board').fadeOut(20000);
     }
 
     function add_ball(x, y, r) {
-        var body = Bodies.circle(x, y, r);
+        var body = Bodies.circle(x, y, r); // TODO: set friction to 0? Not working for me.
         World.add(engine.world, body);
         var $ball = $('<div class="ball">')
                 .css({
@@ -106,5 +106,11 @@
     add_ball(100, 100, 50);
     render();
     $window.scroll(on_scroll);
+    $('#board').click(function(event) {
+        if (event.target === this) { // board itself is the target, and not one of the balls 
+            add_ball(event.offsetX, event.offsetY, 50);
+            on_scroll(); // to set styles that depend on orientation
+        }
+    });
 
 })();
